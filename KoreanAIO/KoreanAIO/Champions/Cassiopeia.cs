@@ -59,22 +59,11 @@ namespace KoreanAIO.Champions
             
             Gapcloser.OnGapcloser += delegate (AIHeroClient sender, Gapcloser.GapcloserEventArgs args)
             {
-                if ((ModeManager.LastHit || ModeManager.Harass) && sender.IsEnemy && args.End.Distance(MyHero, true) <= 700 && args.End.Distance(MyHero, true) > 500)
+                if ((ModeManager.LastHit || ModeManager.Harass) && sender.IsEnemy && args.End.Distance(MyHero, true) <= 800 && args.End.Distance(MyHero, true) > 500)
                     {
-                        CastW(sender);
+                        W.Cast(sender);
                     }
                 
-                else if (sender.IsEnemy && (ModeManager.Harass || ModeManager.Flee) && args.End.Distance(MyHero, true) <= 900 && args.End.Distance(MyHero, true) > 500 )
-                foreach (
-                    var ally in
-                        EntityManager.Heroes.Allies.Where(ally => sender.IsFacing(ally)))
-                {
-//
-                    {
-                        CastW(sender);
-                    }
-                    
-                }
             };
             
             Obj_AI_Base.OnProcessSpellCast += delegate (Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
